@@ -8,7 +8,7 @@ import {
 
 import { useReducer } from 'react'
 
-export const initialState = {
+const initialState: State = {
   fromLanguage: 'auto',
   toLanguage: 'en',
   fromText: '',
@@ -73,8 +73,7 @@ export function useStore () {
         loading }, dispatch] = useReducer(reducer, initialState)
 
     const interchangeLanguage = () => {
-        dispatch({
-            type: 'INTERCHANGE_LANGUAGE'})
+        dispatch({ type: 'INTERCHANGE_LANGUAGE' })
     }
 
     const setFromLanguage = (payload: FromLanguage) => {
@@ -85,11 +84,11 @@ export function useStore () {
         dispatch({ type: 'SET_TO_LANGUAGE', payload})
     }
 
-    const setFromTextLanguage = (payload: Language) => {
+    const setFromTextLanguage = (payload: string) => {
         dispatch({ type: 'SET_FROM_TEXT', payload})
     }
 
-    const setResult = (payload: Language) => {
+    const setResult = (payload: string) => {
         dispatch({ type: 'SET_RESULT', payload})
     }
 
