@@ -1,10 +1,10 @@
 import { AUTO_LANGUAGE } from '../constants'
-import { 
-    type State, 
-    type Action, 
-    type Language,
+import type { 
+     State, 
+     Action, 
+     Language,
     //type AutoLanguage, 
-    type FromLanguage  } from '../type.d.ts'
+     FromLanguage  } from '../type.d.ts'
 
 import { useReducer } from 'react'
 
