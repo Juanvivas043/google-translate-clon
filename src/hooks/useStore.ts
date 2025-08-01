@@ -1,4 +1,4 @@
-import { AUTO_LANGUAGE } from '../constants.ts'
+import { AUTO_LANGUAGE } from '../constants'
 import { 
     type State, 
     type Action, 
