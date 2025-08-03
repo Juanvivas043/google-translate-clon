@@ -1,7 +1,7 @@
 import {Credentials, Translator} from "@translated/lara"
 import { VITE_LARATRANSLATE_API_KEY, VITE_LARATRANSLATE_API_SECRET_KEY } from "./keys";
 import { API_SUPPORTED_LANGUAGES } from "../constants"
-import type { FromLanguage, Language } from "../type.d.ts"
+import type { FromLanguage, Language } from "../type.ts"
 
 
 const credentials = new Credentials(VITE_LARATRANSLATE_API_KEY, VITE_LARATRANSLATE_API_SECRET_KEY);

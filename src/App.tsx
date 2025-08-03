@@ -6,7 +6,7 @@ import { AUTO_LANGUAGE } from './constants'
 import { ArrowsIcon } from './components/icons'
 import { LanguageSelector } from './components/LanguageSelector'
 import { TextArea } from './components/TextArea'
-import { Sectiontype } from './type'
+import { Section } from './type.ts'
 import { useEffect } from 'react'
 import { translate } from './services/translate.ts'
 
@@ -44,12 +44,12 @@ function App() {
         <Col>
           <Stack gap={2}>
             <LanguageSelector 
-            type={Sectiontype.From}
+            type={Section.From}
             value={fromLanguage}
             onChange={setFromLanguage}/>
 
             <TextArea
-            type={Sectiontype.From}
+            type={Section.From}
             value={fromText}
             onChange={setFromTextLanguage}/>
           </Stack>
@@ -66,13 +66,13 @@ function App() {
         <Col>
           <Stack gap={2}>
             <LanguageSelector 
-            type={Sectiontype.To}
+            type={Section.To}
             value={toLanguage}
             onChange={setToLanguage}/>
 
             <TextArea 
               loading={loading}
-              type={Sectiontype.To}
+              type={Section.To}
               value={result}
               onChange={setResult}/>
           </Stack>

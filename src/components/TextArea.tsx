@@ -1,5 +1,6 @@
 import { Form } from "react-bootstrap"
-import { Sectiontype } from "../type"
+import type { Sectiontype } from "../type.ts"
+import { Section } from "../type.ts";
 
 interface Props {
     type: Sectiontype
@@ -11,12 +12,12 @@ interface Props {
 const commonStyles = { border: 0,  height: '200px'}
 
 export const TextArea = ({ type, loading, value, onChange }: Props) => {
-    const styles = type === Sectiontype.From ?
+    const styles = type === Section.From ?
     commonStyles :
     {...commonStyles, backgroundColor: '#f5f5f5'}
 
     const getPlaceHolder = ({ type, loading }: {type: Sectiontype, loading?: boolean}) => {
-        if (type === Sectiontype.From) return 'Introducir Texto'
+        if (type === Section.From) return 'Introducir Texto'
         if (loading === true) return 'Cargando'
         return 'Traduccion'
     }
@@ -28,8 +29,8 @@ export const TextArea = ({ type, loading, value, onChange }: Props) => {
     return (
         <Form.Control
         as='textarea'
-        autoFocus={type === Sectiontype.From}
-        disabled={type === Sectiontype.To}
+        autoFocus={type === Section.From}
+        disabled={type === Section.To}
         placeholder={getPlaceHolder({type, loading})}
         style={styles}
         value={value}
