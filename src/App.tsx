@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
+import { Container, Row, Col, Button, Form, Stack, FormText } from 'react-bootstrap'
 import './App.css'
 import { useStore } from './hooks/useStore'
 import { AUTO_LANGUAGE } from './constants'
 import { ArrowsIcon } from './components/icons'
 import { LanguageSelector } from './components/LanguageSelector'
 import { TextArea } from './components/TextArea'
-import { Section } from './type.ts'
+import { SectionType } from './type.d.ts'
 import { useEffect } from 'react'
 import { translate } from './services/translate.ts'
 
@@ -44,12 +44,12 @@ function App() {
         <Col>
           <Stack gap={2}>
             <LanguageSelector 
-            type={Section.From}
+            type={SectionType.From}
             value={fromLanguage}
             onChange={setFromLanguage}/>
 
             <TextArea
-            type={Section.From}
+            type={SectionType.From}
             value={fromText}
             onChange={setFromTextLanguage}/>
           </Stack>
@@ -66,13 +66,13 @@ function App() {
         <Col>
           <Stack gap={2}>
             <LanguageSelector 
-            type={Section.To}
+            type={SectionType.To}
             value={toLanguage}
             onChange={setToLanguage}/>
 
             <TextArea 
               loading={loading}
-              type={Section.To}
+              type={SectionType.To}
               value={result}
               onChange={setResult}/>
           </Stack>

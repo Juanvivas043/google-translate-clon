@@ -1,13 +1,12 @@
 import { Form } from "react-bootstrap"
 import { SUPPORTED_LANGUAGES } from "../constants"
 import { type FC } from "react"
-import type {Language, Sectiontype } from "../type.ts"
+import type { FromLanguage, Language, SectionType } from "../type.d.ts"
 
-interface Props {
-    type: Sectiontype,
-    onChange: (value:string) => void,
-    value: string
-}
+type Props =
+    | {type: SectionType.From, value: FromLanguage, onChange: (language: FromLanguage) => void}
+    | {type: SectionType.To, value: Language, onChange: (language: Language) => void}
+
 export const LanguageSelector: FC<Props> = ({ onChange, type, value }) => {
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         onChange(event.target.value as Language)

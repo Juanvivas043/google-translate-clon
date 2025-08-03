@@ -4,7 +4,7 @@ import type {
      Action, 
      Language,
     //type AutoLanguage, 
-     FromLanguage  } from '../type.d.ts'
+     FromLanguage  } from '../type.ts'
 
 import { useReducer } from 'react'
 
