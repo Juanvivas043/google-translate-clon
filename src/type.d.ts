@@ -19,3 +19,8 @@ export type Action =
     | {type: 'SET_FROM_TEXT', payload: string}
     | {type: 'SET_RESULT', payload: string}
 
+export enum Sectiontype {
+  From = 'from',
+  To = 'to'
+}
+

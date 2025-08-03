@@ -1,14 +1,38 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button, Form, Stack, FormText } from 'react-bootstrap'
 import './App.css'
 import { useStore } from './hooks/useStore'
 import { AUTO_LANGUAGE } from './constants'
 import { ArrowsIcon } from './components/icons'
 import { LanguageSelector } from './components/LanguageSelector'
+import { TextArea } from './components/TextArea'
+import { Sectiontype } from './type.d.ts'
+import { useEffect } from 'react'
+import { translate } from './services/translate.ts'
 
 function App() {
 
-  const { fromLanguage, toLanguage, setFromLanguage, setToLanguage, interchangeLanguage } = useStore()
+  const { 
+    loading, 
+    fromLanguage,
+    toLanguage, 
+    fromText, 
+    result, 
+    setFromLanguage, 
+    setToLanguage, 
+    setFromTextLanguage, 
+    setResult, 
+    interchangeLanguage } = useStore()
+
+  useEffect(() => {
+    if (fromText === '') return
+    translate({text: fromText, fromLanguage, toLanguage})
+      .then(result => {
+        if (result == null) return
+        setResult(result)
+      })
+      .catch(() => { setResult('Error')})
+  }, [fromText, toLanguage, fromLanguage])
 
   return (
     <>
@@ -18,10 +42,17 @@ function App() {
 
       <Row>
         <Col>
-          <LanguageSelector 
-          type='from'
-          value={fromLanguage}
-          onChange={setFromLanguage}/>
+          <Stack gap={2}>
+            <LanguageSelector 
+            type={Sectiontype.From}
+            value={fromLanguage}
+            onChange={setFromLanguage}/>
+
+            <TextArea
+            type={Sectiontype.From}
+            value={fromText}
+            onChange={setFromTextLanguage}/>
+          </Stack>
         </Col>
 
         <Col>
@@ -33,11 +64,20 @@ function App() {
         </Col>
 
         <Col>
-          <LanguageSelector 
-          type='to'
-          value={toLanguage}
-          onChange={setToLanguage}/>
+          <Stack gap={2}>
+            <LanguageSelector 
+            type={Sectiontype.To}
+            value={toLanguage}
+            onChange={setToLanguage}/>
+
+            <TextArea 
+              loading={loading}
+              type={Sectiontype.To}
+              value={result}
+              onChange={setResult}/>
+          </Stack>
         </Col>
+        
       </Row>
 
     </Container>
