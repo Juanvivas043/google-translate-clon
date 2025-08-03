@@ -3,7 +3,7 @@ import type { Sectiontype } from "../type.ts"
 import { Section } from "../type.ts";
 
 interface Props {
-    type: Sectiontype
+    type: Sectiontype,
     loading?: boolean,
     onChange: (value:string)=>void,
     value:string
