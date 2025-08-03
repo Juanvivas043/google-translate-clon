@@ -6,7 +6,7 @@ import { AUTO_LANGUAGE } from './constants'
 import { ArrowsIcon } from './components/icons'
 import { LanguageSelector } from './components/LanguageSelector'
 import { TextArea } from './components/TextArea'
-import { SectionType } from './type.d.ts'
+import { SectionType } from './type.ts'
 import { useEffect } from 'react'
 import { translate } from './services/translate.ts'
 
