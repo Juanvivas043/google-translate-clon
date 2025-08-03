@@ -52,7 +52,7 @@ function App() {
     <>
     <Container fluid>
 
-      <h1>Google Translate</h1>
+      <h1>Juan Translate</h1>
 
       <Row>
         <Col>
