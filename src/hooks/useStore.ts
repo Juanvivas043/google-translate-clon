@@ -22,21 +22,30 @@ export function reducer(state: State, action: Action) {
   if (type === 'INTERCHANGE_LANGUAGE') {
     if (state.fromLanguage === AUTO_LANGUAGE) return state
 
+    const loading = state.fromText !== ''
+
     return {
       ...state,
+      loading,
+      result: '',
       fromLanguage: state.toLanguage,
       toLanguage: state.fromLanguage
     }
   }
 
   if (type === 'SET_FROM_LANGUAGE') {
+    if (state.fromLanguage === action.payload) return state
+    const loading = state.fromText !== ''
     return {
       ...state,
-      fromLanguage:  action.payload
+      fromLanguage:  action.payload,
+      result: '',
+      loading
     }
   }
 
   if (type === 'SET_TO_LANGUAGE') {
+    if (state.toLanguage === action.payload) return state
     return {
       ...state,
       toLanguage:  action.payload

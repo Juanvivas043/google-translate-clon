@@ -8,7 +8,7 @@ interface Props {
     value:string
 }
 
-const commonStyles = { border: 0,  height: '200px'}
+const commonStyles = { border: 0,  height: '200px', width: '250px'}
 
 export const TextArea = ({ type, loading, value, onChange }: Props) => {
     const styles = type === SectionType.From ?
