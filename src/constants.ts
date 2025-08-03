@@ -4,9 +4,9 @@ export const API_SUPPORTED_LANGUAGES = {
     it: 'it-IT',
     fr: 'fr-FR',
     de: 'de-DE',
-    jp: 'ja-JP',
-    kr: 'ko-KR',
-    ch: 'zh-CN'
+    ja: 'ja-JP',
+    ko: 'ko-KR',
+    zh: 'zh-CN'
 } as const
 
 export const SUPPORTED_LANGUAGES = {
@@ -15,9 +15,9 @@ export const SUPPORTED_LANGUAGES = {
     it: 'Italiano',
     fr: 'Francés',
     de: 'Alemán',
-    jp: 'Japonés',
-    kr: 'Coreano',
-    ch: 'Chino'
+    ja: 'Japonés',
+    ko: 'Coreano',
+    zh: 'Chino'
 } as const
 
 export const AUTO_LANGUAGE = 'auto' as const
